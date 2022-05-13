@@ -182,8 +182,7 @@ def main():
     gst = get_gst(subtotal, gst_rate) 
   
     print(get_summary_bill('GST', gst))
-    total = round(subtotal + gst,2)
-    assert total >= 0, "Tax Rate can't be negative" 
+    total = round(subtotal + gst,2) 
     print('{}\n'.format(get_summary_bill('Total', total)))
     amouunt_paid=get_payment(total)
 
