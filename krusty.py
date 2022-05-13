@@ -94,8 +94,6 @@ def get_gst(total: float, rate: int) -> float:
     0.15
     '''
     get_gst = round(total * (rate),2)
-    if get_gst > 0:
-        raise ValueError ('The tax value cannot be negative')
     
         
     return get_gst
