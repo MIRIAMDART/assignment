@@ -9,7 +9,7 @@ milkshake = 'Milkshake'
 milkshake_price = 3.50
 meal_set = 'Krusty Meal Set[Burger + Drink + Krusty Laugh]'
 meal_set_price = 10.50
-gst_rate = -455
+gst_rate = 5/100
 
 def get_order(item: str) -> int:
     '''
@@ -82,8 +82,6 @@ def get_subtotal(price: float, quantity: int) -> float:
 
 
 def get_gst(total: float, rate: int) -> float:
-   
-
     '''
     Calculate goods and services tax levied on bill.
     Input - Amount which tax is to be applied and tax rate.
@@ -94,8 +92,6 @@ def get_gst(total: float, rate: int) -> float:
     0.15
     '''
     get_gst = round(total * (rate),2)
-    
-        
     return get_gst
 
 def get_payment(total:float) ->float:
@@ -179,10 +175,9 @@ def main():
     meal_set_subtotal = get_subtotal(meal_set_price,meal_set_quantity)
     subtotal = round(burger_subtotal+milkshake_subtotal+meal_set_subtotal,2)
     print(get_summary_bill('Sub-total', subtotal))
-    gst = get_gst(subtotal, gst_rate) 
-  
+    gst = get_gst(subtotal, gst_rate)
     print(get_summary_bill('GST', gst))
-    total = round(subtotal + gst,2) 
+    total = round(subtotal + gst,2)
     print('{}\n'.format(get_summary_bill('Total', total)))
     amouunt_paid=get_payment(total)
 
